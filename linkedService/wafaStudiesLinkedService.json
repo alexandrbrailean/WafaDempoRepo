@@ -1,0 +1,16 @@
+{
+	"name": "wafaStudiesLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=LAPTOP-S7ISJSKG;initial catalog=[AdventureWorks2017];user id=LAPTOP-S7ISJSKG/brail",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlYjc5YWNhNy02MWZhLTRlZDEtYTBlMC1lOGJkZGU5ZGMzZTQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "Ir-wafa",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

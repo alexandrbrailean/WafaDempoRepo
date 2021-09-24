@@ -1,0 +1,9 @@
+{
+	"name": "ADFDdemoWafa",
+	"location": "westus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f7d6dfc3-5f22-4c18-991e-0a79b2c15000",
+		"tenantId": "e3001179-6204-41f9-9f35-d687b59da9ed"
+	}
+}

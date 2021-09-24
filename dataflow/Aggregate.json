@@ -1,0 +1,32 @@
+{
+	"name": "Aggregate",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Employee1",
+						"type": "DatasetReference"
+					},
+					"name": "TotalEmplDepData"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "outputDataDataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "AggregateOnDepartment"
+				}
+			],
+			"script": "source(output(\n\t\tempid as string,\n\t\tname as string,\n\t\tsalary as string,\n\t\tdep as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> TotalEmplDepData\nTotalEmplDepData aggregate(groupBy(dep),\n\tTotalEmployees = count(empid)) ~> AggregateOnDepartment\nAggregateOnDepartment sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['TotalEmpByDep.csv'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tdepartmentID = dep,\n\t\tTotalEmployees\n\t),\n\tpartitionBy('hash', 1)) ~> sink1"
+		}
+	}
+}
